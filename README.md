@@ -1,5 +1,26 @@
 # MetaSim 💎
+
 Plataforma SaaS de Simulação Financeira com Modelagem Matemática
+
+---
+
+## 🏗 Arquitetura do Sistema
+
+```mermaid
+flowchart LR
+    User[Usuário] -->|Requisição HTTP| Django[Django App]
+    
+    Django --> Accounts[App Accounts]
+    Django --> Simulations[App Simulations]
+    
+    Simulations --> Logic[Lógica Matemática]
+    Simulations --> Database[(Banco de Dados)]
+    
+    Django --> Templates[Templates + Tailwind]
+    Templates --> Charts[Chart.js]
+```
+
+---
 
 ## 📌 Sobre o Projeto
 
@@ -10,6 +31,27 @@ A plataforma permite que usuários criem projeções de crescimento de capital, 
 > ⚠️ O sistema não fornece recomendação de investimentos. Atua exclusivamente como ferramenta de apoio à decisão baseada em simulação matemática.
 
 ---
+## ⚙️ Funcionamento do Sistema
+
+```mermaid
+flowchart TD
+
+A[Início do Sistema] --> B[Receber Dados de Entrada]
+B --> C{Dados Válidos?}
+
+C -- Não --> D[Exibir Mensagem de Erro]
+D --> B
+
+C -- Sim --> E[Processar Dados]
+E --> F[Realizar Cálculos]
+F --> G[Gerar Resultados]
+
+G --> H[Exibir Resultados na Tela]
+H --> I{Deseja Novo Cálculo?}
+
+I -- Sim --> B
+I -- Não --> J[Fim do Sistema]
+```
 
 ## 🎯 Objetivo
 
@@ -49,26 +91,6 @@ Variação aleatória controlada da taxa mensal:
 taxa_real = taxa_base + variação_aleatória
 
 Essa abordagem introduz comportamento não linear e simulação de volatilidade simplificada.
-
----
-
-## 🏗 Arquitetura do Projeto
-
-### Backend
-- Python
-- Django
-- ORM Django
-- Autenticação nativa
-- Banco de dados relacional
-
-### Frontend
-- Django Templates
-- TailwindCSS
-- Chart.js
-
-### Estrutura Modular
-- `accounts` → gerenciamento de usuários e planos
-- `simulations` → lógica matemática e regras de negócio
 
 ---
 
@@ -134,3 +156,19 @@ python manage.py migrate
 
 # Rodar servidor
 python manage.py runserver
+```
+
+---
+
+## 📌 Status do Projeto
+
+🚧 Em desenvolvimento
+
+---
+
+## 👩‍💻 Desenvolvido por
+
+Vanda Mello  
+Estudante de Engenharia Elétrica e Desenvolvedora em formação  
+
+Projeto desenvolvido como MicroSaaS para demonstração técnica de modelagem matemática aplicada.
