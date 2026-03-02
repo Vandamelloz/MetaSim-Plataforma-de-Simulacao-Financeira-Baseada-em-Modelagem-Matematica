@@ -168,7 +168,7 @@ python manage.py runserver
 
 ## 👩‍💻 Desenvolvido por
 
-Vanda Mello  
+Vanderléia Mello  
 Estudante de Engenharia Elétrica e Desenvolvedora em formação  
 
 Projeto desenvolvido como MicroSaaS para demonstração técnica de modelagem matemática aplicada.
